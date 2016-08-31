@@ -1,0 +1,11 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Steiner tree problem}{2}{section.2}
+\contentsline {section}{\numberline {3}The approximation algorithm}{2}{section.3}
+\contentsline {paragraph}{}{2}{section*.3}
+\contentsline {section}{\numberline {4}Implementation}{3}{section.4}
+\contentsline {paragraph}{}{3}{section*.4}
+\contentsline {paragraph}{}{4}{section*.5}
+\contentsline {paragraph}{}{4}{section*.6}
+\contentsline {section}{\numberline {5}Results}{4}{section.5}
+\contentsline {section}{\numberline {6}Conclusions}{5}{section.6}
