@@ -221,36 +221,60 @@ R100KEFST, is the instance with fractional weight, Euclidean distance. TSPFST, P
 \begin{tikzpicture}
   \begin{axis}
     [
-    ytick={1,2,3},
-    yticklabels={Index 0, Index 1, Index 2},
+    ytick={1,2,3,4,5},
+    yticklabels={R100KEFST,TSPFST, LIN , PUC, WRP},
     ]
     \addplot+[
     boxplot prepared={
-      median=1,
-      upper quartile=1.2,
-      lower quartile=0.4,
-      upper whisker=1.5,
-      lower whisker=0.2
+      median=1.0268038542,
+      upper quartile=1.0269084511,
+      lower quartile=1.0265139141,
+      upper whisker=1.0270125799,
+      lower whisker=1.0257391121
     },
     ] coordinates {};
+    
+    
+    
     \addplot+[
     boxplot prepared={
-      median=2,
-      upper quartile=2.3,
-      lower quartile=1.5,
-      upper whisker=2.7,
+      median=1.0262745822,
+      upper quartile=1.0471589154,
+      lower quartile=1.0109452651,
+      upper whisker=1.1075794621,
       lower whisker=1
     },
     ] coordinates {};
+    
+    \addplot+[
+            boxplot prepared={
+              median=1.0635894918,
+              upper quartile=1.0871443673,
+              lower quartile=1.0373687894,
+              upper whisker=1.1138607971,
+              lower whisker=1
+            },
+     ] coordinates {};
+    
     \addplot+[
     boxplot prepared={
-      median=0.7,
-      upper quartile=1.4,
-      lower quartile=0.5,
-      upper whisker=1.9,
-      lower whisker=0.1
+      median=1.3716551869,
+      upper quartile=1.4516437167,
+      lower quartile=1.2941765918,
+      upper whisker=1.672542735,
+      lower whisker=1.0859709153
     },
     ] coordinates {};
+    \addplot+[
+    boxplot prepared={
+          median=1.6063724455,
+          upper quartile=1.7045599952,
+          lower quartile=1.540864311,
+          upper whisker=1.9330294923,
+          lower whisker=1.3283060052
+        },
+        ] coordinates {};
+    
   \end{axis}
 \end{tikzpicture}
   
