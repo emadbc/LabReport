@@ -13,6 +13,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.8}
 \usepgfplotslibrary{statistics}
+\usetikzlibrary{pgfplots.statistics}
 
 \tikzstyle{vertex}=[circle, draw, inner sep=2pt, minimum size=3pt]
 \newcommand{\vertex}{\node[vertex]}
@@ -212,17 +213,12 @@ Several tests has been performed to evaluate the performance of this aproximatio
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.4]{ratio.jpg}
-\caption{Comparing approximation ratio over instances of Steiner tree problem}
-\end{figure}
-The ratio in Figure 2 is the average(arithmetic mean) of several instances for each kind.
-R100KEFST, is the instance with fractional weight, Euclidean distance. TSPFST, PUC, P6Z and LIN are the instances of \emph{SteinLib}[6] testsets.
-
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
   \begin{axis}
     [
     ytick={1,2,3,4,5},
-    yticklabels={R100KEFST,TSPFST, LIN , PUC, WRP},
+    yticklabels={R100KEFST,TSPFST,LIN,PUC,WRP},
+    boxplot/variable width 
     ]
     \addplot+[
     boxplot prepared={
@@ -234,8 +230,7 @@ R100KEFST, is the instance with fractional weight, Euclidean distance. TSPFST, P
     },
     ] coordinates {};
     
-    
-    
+    %TSPFST
     \addplot+[
     boxplot prepared={
       median=1.0262745822,
@@ -265,6 +260,7 @@ R100KEFST, is the instance with fractional weight, Euclidean distance. TSPFST, P
       lower whisker=1.0859709153
     },
     ] coordinates {};
+
     \addplot+[
     boxplot prepared={
           median=1.6063724455,
@@ -274,10 +270,21 @@ R100KEFST, is the instance with fractional weight, Euclidean distance. TSPFST, P
           lower whisker=1.3283060052
         },
         ] coordinates {};
-    
+      
   \end{axis}
 \end{tikzpicture}
-  
+\caption{Comparison of approximation ratio}
+\end{figure}  
+R100KEFST, is the instance with fractional weight, Euclidean distance and it is obtained by full Steiner tree generation for the classical Euclidean Steiner tree problem in the plane[7]. TSPFST, PUC, and LIN are the instances from \emph{SteinLib}[8] testsets. These instances all have integer weights. TSPFST is a rectilinear graph with L1 distances.  PUC contains 3 classes of the instance, hypercubes,  code covering and bipartite graphs,  and they are artificial instances(i.e. there are not derived from real world problem)[9]. The LIN instance is derived from VLSI grid graphs and it has L1 distances[10].  
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{wrpRuntime.png}
+\includegraphics[scale=0.3]{wrpTerminals.png}
+\caption{Running time of WRP instance in millisecond}
+\end{figure}
+
+
 
 \section{Conclusions}
 We have presented an implementation of an approximation algorithm for Steiner tree problem. The algorithm has approximation ratio of $2 - \frac{2}{l}$,where $ l $ is the minimum number of leaves in any Steiner tree for the given graph. The algorithm running time is dominated by a single shortest path problem which is computed in our code using Dijkstra algorithm and priority queue which yields the running time of $\mathcal{O}(|E|log|V|)$.   
@@ -301,7 +308,6 @@ We have presented an implementation of an approximation algorithm for Steiner tr
 	     \newblock A Fast Algorithm for Steiner Trees
 	     \newblock {\em Acta Informatica}, 15,141-145(1981)   
 	
-	
 	\bibitem{FIBH}  M.L. Fredman and R.E. Tarjan, Fibonacci Heaps 
 	and Their Uses in Improved Network Optimization Algorithms(IEEE, 1984) 338-246
 
@@ -314,10 +320,20 @@ We have presented an implementation of an approximation algorithm for Steiner tr
 		Steiner Tree Problems,
 		\url{http://dimacs11.zib.de/downloads.html}	
 	
-	\bibitem{SteinLib} SteinLib Testdata Library,
-		SteinLib is a collection of Steiner tree problems in graphs and variants.
-			\url{http://steinlib.zib.de/steinlib.php}
+	\bibitem{EFST} D. Juhl1, D.M. Warme, P. Winter, M. Zachariasen,
+	The GeoSteiner Software Package for
+	Computing Steiner Trees in the Plane:
+	An Updated Computational Study	
 	
+	\bibitem{SteinLib} SteinLib Testdata Library,
+			SteinLib is a collection of Steiner tree problems in graphs and variants.
+				\url{http://steinlib.zib.de/steinlib.php}
+	
+	\bibitem{PUC} sabel Rosseti, Marcus Poggi de Aragão, Celso C. Ribeiro, Eduardo Uchoa, Renato F. Werneck 2004
+	New Benchmark Instances for The Steiner Problem in Graphs,Metaheuristics: Computer Decision-Making, pp. 601-614
+	
+	\bibitem{LIN}T. Polzin and S. Vahdati,2001,
+	 Extending reduction techniques for the {Steiner} tree problem: A combination of alternative- and bound-based approaches, MPI-I-2001-1-007
 	
 \end{thebibliography}
 
