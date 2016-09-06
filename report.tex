@@ -11,6 +11,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage{tikz}
 \usepackage{pgfplots}
+
 \pgfplotsset{compat=1.8}
 \usepgfplotslibrary{statistics}
 \usetikzlibrary{pgfplots.statistics}
@@ -24,6 +25,9 @@
    preaction = {decorate},
    postaction = {draw,line width=1.4pt, white,shorten >= 4.5pt}]
 \tikzstyle{innerWhite} = [semithick, white,line width=1.4pt, shorten >= 4.5pt]
+
+
+
 %
 \begin{document}
 %
@@ -279,15 +283,38 @@ R100KEFST, is the instance with fractional weight, Euclidean distance and it is 
 
 In theory, it is claimed that step 1 of algorithm 1 dominates the whole running time. The runtime of the program was  measured  in microsecond and for most of the instances contribution of step 1 in running time is the most comparing to other steps. Figure 3 represtnts the running time diagram for seleceted instances.
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.3]{LIN.png}
-\includegraphics[scale=0.3]{PUC.png}
-\includegraphics[scale=0.3]{TSPFST.png}
-\includegraphics[scale=0.3]{WRP.png}
-\includegraphics[scale=0.3]{R100KEFST.png}
+\begin{figure}
 
-\caption{Running time in microsecond for each step of algorithm }
+\begin{subfigure}[b]{0.1\textwidth}
+        \centering
+ 		\includegraphics[scale=0.4]{TSPFST.png}
+     \end{subfigure}
+\hfill
+ \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+ 		\includegraphics[scale=0.4]{PUC.png}
+     \end{subfigure}
+    \hfill
+    
+ \begin{subfigure}[b]{0.1\textwidth}
+ \centering
+     \includegraphics[scale=0.4]{WRP.png}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.5\textwidth}
+ \centering
+     \includegraphics[scale=0.4]{LIN.png}
+     
+\end{subfigure}
+
+\hfill
+\begin{subfigure}[b]{1\textwidth}
+ \centering
+     \includegraphics[scale=0.4]{R100KEFST.png}
+     
+\end{subfigure}
+
+\caption{Running time in microsecond for of each step of the algorithm }
 \end{figure}
 
 
