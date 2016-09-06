@@ -319,10 +319,7 @@ In theory, it is claimed that step 1 of algorithm 1 dominates the whole running 
 
 
 \section{Conclusions}
-We have presented an implementation of an approximation algorithm for Steiner tree problem. The algorithm has approximation ratio of $2 - \frac{2}{l}$,where $ l $ is the minimum number of leaves in any Steiner tree for the given graph. The algorithm running time is dominated by a single shortest path problem which is computed in our code using Dijkstra algorithm and priority queue which yields the running time of $\mathcal{O}(|E|log|V|)$.   
-
-
-% TABLES
+We have presented an implementation of an approximation algorithm for Steiner tree problem. The algorithm has approximation ratio of $2 - \frac{2}{l}$,where $ l $ is the minimum number of leaves in any Steiner tree for the given graph. The algorithm running time is dominated by its first step in which a single shortest path problem is computed, in our code we used the Dijkstra algorithm and priority queue which yields the running time of $\mathcal{O}(|E|log|V|)$. From the experimental results, we observed that the most consuming step for most of the instances is the first one and this result agrees with the theory.         
 
 
 
