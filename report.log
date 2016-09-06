@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.13)  1 SEP 2016 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.13)  6 SEP 2016 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,67 +770,81 @@ Overfull \hbox (3.8289pt too wide) in paragraph at lines 104--105
  []
 
 [2]
-Overfull \hbox (0.46799pt too wide) in paragraph at lines 183--185
-$\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s; t\OT1/cmr/m/n/10 )$ i
-n equa-tion []2[] is the length of short-est path in G re-stricted to $\OML/cmm
-/m/it/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it
-/10 N\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$.
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
 
-[3] <wrpRuntime.png, id=79, 481.8pt x 361.35pt>
-File: wrpRuntime.png Graphic file (type png)
- <use wrpRuntime.png>
-Package pdftex.def Info: wrpRuntime.png used on input line 282.
-(pdftex.def)             Requested size: 144.5411pt x 108.40584pt.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
-<wrpTerminals.png, id=80, 481.8pt x 361.35pt>
-File: wrpTerminals.png Graphic file (type png)
- <use wrpTerminals.png>
-Package pdftex.def Info: wrpTerminals.png used on input line 283.
-(pdftex.def)             Requested size: 144.5411pt x 108.40584pt.
- [4]
-[5 <./wrpRuntime.png> <./wrpTerminals.png>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
+ []
+
+[4] <LIN.png, id=85, 455.45157pt x 255.95625pt>
+File: LIN.png Graphic file (type png)
+ <use LIN.png>
+Package pdftex.def Info: LIN.png used on input line 284.
+(pdftex.def)             Requested size: 136.63652pt x 76.78746pt.
+
+<PUC.png, id=86, 455.45157pt x 255.95625pt>
+File: PUC.png Graphic file (type png)
+ <use PUC.png>
+Package pdftex.def Info: PUC.png used on input line 285.
+(pdftex.def)             Requested size: 136.63652pt x 76.78746pt.
+
+<TSPFST.png, id=87, 455.45157pt x 255.95625pt>
+File: TSPFST.png Graphic file (type png)
+ <use TSPFST.png>
+Package pdftex.def Info: TSPFST.png used on input line 286.
+(pdftex.def)             Requested size: 136.63652pt x 76.78746pt.
+
+<WRP.png, id=88, 455.45157pt x 255.95625pt>
+File: WRP.png Graphic file (type png)
+ <use WRP.png>
+Package pdftex.def Info: WRP.png used on input line 287.
+(pdftex.def)             Requested size: 136.63652pt x 76.78746pt.
+
+<R100KEFST.png, id=89, 455.45157pt x 255.95625pt>
+File: R100KEFST.png Graphic file (type png)
+ <use R100KEFST.png>
+Package pdftex.def Info: R100KEFST.png used on input line 288.
+(pdftex.def)             Requested size: 136.63652pt x 76.78746pt.
+ [5 <./LIN.png (PNG copy)> <./PUC.png (PNG copy)> <./TSPFST.png (PNG copy)> <./
+WRP.png (PNG copy)> <./R100KEFST.png (PNG copy)>] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 345.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: D826C4C3EBDAF8E25792DD871DE06023;301.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 340.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 345.
  ) 
 Here is how much of TeX's memory you used:
- 27215 strings out of 493013
- 659265 string characters out of 6133328
+ 27230 strings out of 493013
+ 659392 string characters out of 6133328
  863236 words of memory out of 5000000
- 30304 multiletter control sequences out of 15000+600000
+ 30316 multiletter control sequences out of 15000+600000
  9529 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,15n,103p,1203b,2336s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (6 pages, 203311 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on report.pdf (6 pages, 380622 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 172 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  39 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 92 words of extra memory for PDF output out of 10000 (max. 10000000)
 

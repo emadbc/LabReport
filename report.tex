@@ -46,12 +46,12 @@
 % a number to the section
 
 \section{Introduction}
-An approximation algorithm for finding a Steiner tree of a connected, undirected distance graph was implemented. This algoritm has approximation ratio of $2-\frac{2}{l}$, which means it gives us a Steiner tree with total distance of all edges at most $2-\frac{2}{l}$ times that of the optimal tree, where $l$ is the number of leaves in the optimal tree. The worst case time complexity of this algorithm is $ \mathcal{O}(\left| V \right|\log{}\left| V \right| + \left| E \right|)$, where E is the set of edges and V is the set of vertices.
+An approximation algorithm for finding a Steiner tree of a connected, undirected distance graph was implemented. This algoritm has approximation ratio of $2-\frac{2}{l}$, which means it gives us a Steiner tree with total distance of all edges at most $2-\frac{2}{l}$ times that of the optimal tree, where $l$ is the number of leaves in the optimal tree. The worst case time complexity of this algorithm is $ \mathcal{O}(\left| V \right|\log{}\left| V \right| + \left| E \right|)$, where $E$ is the set of edges and $V$ is the set of vertices.
  
  
 \section{Steiner tree problem}
-Given an undirected distance graph $G=(V,E,d)$ and a set S, where E is the set of edges in G, V is the set of vertices in G, d is a distance function which maps E into the set of nonnegative numbers and $S \in V$ is a subset of V. Let Q be any subset of vertices in a connected subgraph G' of G. We shall say that G' spans Q. A spanning tree of G is tree subgraph of G that spans V. The minimal spanning tree of G is a spanning tree of G such that the total distance of on its edges is minimal among all spanning trees. The Steiner tree for a given G and S is the tree that spans S, and the minimal Steiner tree is the one among all Steiner trees for G and S that has minimal total distance.
-The problem for finding a minimal Steiner tree for any given G and S has been proved to be NP-Complete[2].	
+Given an undirected distance graph $G=(V,E,d)$ and a set $S$, where $E$ is the set of edges in $G, V$ is the set of vertices in $G, d$ is a distance function which maps E into the set of nonnegative numbers and $S \in V$ is a subset of $V$. Let $Q$ be any subset of vertices in a connected subgraph $G'$ of G. We shall say that $G$' spans $Q$. A spanning tree of $G$ is tree subgraph of $G$ that spans $V$. The minimal spanning tree of G is a spanning tree of $G$ such that the total distance of on its edges is minimal among all spanning trees. The Steiner tree for a given $G$ and $S$ is the tree that spans $S$, and the minimal Steiner tree is the one among all Steiner trees for G and S that has minimal total distance.
+The problem for finding a minimal Steiner tree for any given $G$ and $S$ has been proved to be NP-Complete[2].	
 
 \begin{figure}[h]
 \centering
@@ -157,7 +157,7 @@ The problem for finding a minimal Steiner tree for any given G and S has been pr
 The algorithm is a modified version of Kou, Markowsky and Berman[3], which gives a better running time and also because of reducing the problem to shortest path and minimum spanning tree it is simpler.
 Given $G=(V,E,d)$ a connceted, undirected distance graph, and the set of terminals $S \subseteq V$. Then the graph $G'_1 = (S, E'_1,d'_1)$ can be cosntructed as follows.
 
-For every vertex $s \in S$ let N(s) be the set of vertices in V which are closer to s than to any other vertex in S(in computational geometry N(s) is called the Voronoi region of vertex s). We can partition V according to N(s) by considering $ \{ N(s); s \in S  \} $, in other words every vertex $ v\in V $ belongs uniquely to one of the partitions N(s) with s as its center, where v is closer to s than any other vertex $ q\in S$ , $q \neq s$. Now, the graph $G'_1 = (S, E'_1,d'_1)$ is defined by
+For every vertex $s \in S$ let $N(s)$ be the set of vertices in V which are closer to s than to any other vertex in S(in computational geometry N(s) is called the Voronoi region of vertex s). We can partition V according to N(s) by considering $ \{ N(s); s \in S  \} $, in other words every vertex $ v\in V $ belongs uniquely to one of the partitions N(s) with s as its center, where v is closer to s than any other vertex $ q\in S$ , $q \neq s$. Now, the graph $G'_1 = (S, E'_1,d'_1)$ is defined by
 
 
 
@@ -180,10 +180,10 @@ d'_1(s,t) = min \{d_1(s,u)+d(u,v)+d_1(v,t);\\ (u,v)\in E , u\in N(s), v\in N(t) 
 In equation \ref{dp1} $ d_1(v_i,v_j)$ is equal to the distance of shortest path from $v_i$ to $v_j$ for $v_i,v_j \in V$ in graph G.
    
 \end{flushleft}
-$d'_1(s,t)$ in equation \ref{dp1} is the length of shortest path in G restricted to $N(s) \bigcup N(t)$. And the edge $(u',v')\in E'_1$ corresponds to the bridge edge $(u,v) \in E$ which acts like a bridge that goes from region N(s) to region N(t). Now the algorithm is as follow :\\
+$d'_1(s,t)$ in equation \ref{dp1} is the length of shortest path in G restricted to $N(s) \cup N(t)$. And the edge $(u',v')\in E'_1$ corresponds to the bridge edge $(u,v) \in E$ which acts like a bridge that goes from region N(s) to region N(t). Now the algorithm is as follow :\\
 	{\em 
 	\begin{enumerate}
-			\item Construct the graph $G'_1=(S,E'_1,d'_1)$ 
+			 \item Construct the graph $G'_1=(S,E'_1,d'_1)$ 
 			
 			\item Find a minimum spanning tree $G_2$ of $G'_1$.
 					
@@ -200,7 +200,7 @@ Step 1 of Algorithm 1 dominates the computational time. This step requires the s
 
 \section{Implementation}
 \paragraph{}
-Step 1 of Algorithm 1 requires the voronoi region $\{ N(s); s\in S \}$ of each vertex $v\in V$. The partition $\{ N(s); s\in S \}$ can be computed by adjoining an auxiliary vertex $ S_0 $ and edges $ (s_0,s ),s \in S $, with length 0 to G and then performing a single source shortest path with source $s_0$. This step was implemented in the program by using a min priority queue based on a priority heap.The priority queue provides $ \mathcal{O}(log(n)) $ time for enqueing and dequeing. For the Dijkstra algorithm the priority queue stores at most $|V|$ number of item, thus each of enqueing and dequeing need $ \mathcal{O}(log(|V|)) $ and totally there are $|E|$ number of such operations, which gives the running time of $ \mathcal{O}(\left| E \right|\log{} |V|)$ for step 1. This step also needs $\mathcal{O}(|E|)$ for finding $G'_1$ edges. For finding $G'_1$'s edges the program goes through all edges $(u,v)\in E$ and generates the triples $(s(u),s(v),d_1(s(u),u)+d(u,v)+d_1(v,s(v))$ in which $s(v)\in S$ is the center of region that v belongs to.Then the program finds the minimum distance for edge $(s(u),s(v)$ over all distances $d_1(s(u),u)+d(u,v)+d_1(v,s(v))$.   
+Step 1 of Algorithm 1 requires the voronoi region $\{ N(s); s\in S \}$ of each vertex $v\in V$. The partition $\{ N(s); s\in S \}$ can be computed by adjoining an auxiliary vertex $ S_0 $ and edges $ (s_0,s ),s \in S $, with length 0 to G and then performing a single source shortest path with source $s_0$. This step was implemented in the program by using a min priority queue based on a priority heap.The priority queue provides $ \mathcal{O}(log(n)) $ time for enqueing and dequeing. For the Dijkstra algorithm the priority queue stores at most $|V|$ number of item, thus each of enqueing and dequeing need $ \mathcal{O}(log(|V|)) $ and totally there are $|E|$ number of such operations, which gives the running time of $ \mathcal{O}(\left| E \right| log(|V|) )$ for step 1. This step also needs $\mathcal{O}(|E|)$ for finding $G'_1$ edges. For finding $G'_1$'s edges the program goes through all edges $(u,v)\in E$ and generates the triples $(s(u),s(v),d_1(s(u),u)+d(u,v)+d_1(v,s(v))$ in which $s(v)\in S$ is the center of region that v belongs to.Then the program finds the minimum distance for edge $(s(u),s(v)$ over all distances $d_1(s(u),u)+d(u,v)+d_1(v,s(v))$.   
 \paragraph{}
 Step 2 computes the minimum spanning tree $G_2$ of $G'_1$. The graph $G'_1$ has $\mathcal{O} (|E|)$ edges and hence this step can be carried out in $\mathcal{O}(|E|log(|S|))$ by using Kruskal algorithm and Union Find data structure[4].
 \paragraph{}
@@ -275,15 +275,20 @@ Several tests has been performed to evaluate the performance of this aproximatio
 \end{tikzpicture}
 \caption{Comparison of approximation ratio}
 \end{figure}  
-R100KEFST, is the instance with fractional weight, Euclidean distance and it is obtained by full Steiner tree generation for the classical Euclidean Steiner tree problem in the plane[7]. TSPFST, PUC, and LIN are the instances from \emph{SteinLib}[8] testsets. These instances all have integer weights. TSPFST is a rectilinear graph with L1 distances.  PUC contains 3 classes of the instance, hypercubes,  code covering and bipartite graphs,  and they are artificial instances(i.e. there are not derived from real world problem)[9]. The LIN instance is derived from VLSI grid graphs and it has L1 distances[10].  
+R100KEFST, is the instance with fractional weight, Euclidean distance and it is obtained by full Steiner tree generation for the classical Euclidean Steiner tree problem in the plane[7]. TSPFST, PUC, , LIN and WRP are the instances from \emph{SteinLib}[8] testsets. These instances all have integer weights. Here is brief description of each of this dataset. TSPFST is a rectilinear graph with L1 distances.  PUC contains 3 classes of the instance, hypercubes,  code covering and bipartite graphs,  and they are artificial instances(i.e. there are not derived from real world problem)[9]. The LIN instance is derived from VLSI grid graphs and it has L1 distances[10]. WRP instances are wire routing problems from industry. \\
+
+In theory, it is claimed that step 1 of algorithm 1 dominates the whole running time. The runtime of the program was  measured  in microsecond and for most of the instances contribution of step 1 in running time is the most comparing to other steps. Figure 3 represtnts the running time diagram for seleceted instances.
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{wrpRuntime.png}
-\includegraphics[scale=0.3]{wrpTerminals.png}
-\caption{Running time of WRP instance in millisecond}
-\end{figure}
+\includegraphics[scale=0.3]{LIN.png}
+\includegraphics[scale=0.3]{PUC.png}
+\includegraphics[scale=0.3]{TSPFST.png}
+\includegraphics[scale=0.3]{WRP.png}
+\includegraphics[scale=0.3]{R100KEFST.png}
 
+\caption{Running time in microsecond for each step of algorithm }
+\end{figure}
 
 
 \section{Conclusions}
