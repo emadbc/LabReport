@@ -11,7 +11,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage{tikz}
 \usepackage{pgfplots}
-
+\usepackage{float}
 \pgfplotsset{compat=1.8}
 \usepgfplotslibrary{statistics}
 \usetikzlibrary{pgfplots.statistics}
@@ -50,7 +50,7 @@
 % a number to the section
 
 \section{Introduction}
-An approximation algorithm for finding a Steiner tree of a connected, undirected distance graph was implemented. This algoritm has approximation ratio of $2-\frac{2}{l}$, which means it gives us a Steiner tree with total distance of all edges at most $2-\frac{2}{l}$ times that of the optimal tree, where $l$ is the number of leaves in the optimal tree. The worst case time complexity of this algorithm is $ \mathcal{O}(\left| V \right|\log{}\left| V \right| + \left| E \right|)$, where $E$ is the set of edges and $V$ is the set of vertices.
+An approximation algorithm for finding a Steiner tree of a connected, undirected distance graph was implemented. This algorithm has approximation ratio of $2-\frac{2}{l}$, which means it gives us a Steiner tree with the total distance of all edges at most $2-\frac{2}{l}$ times that of the optimal tree, where $l$ is the number of leaves in the optimal tree. The worst case time complexity of this algorithm is $ \mathcal{O}(\left| V \right|\log{}\left| V \right| + \left| E \right|)$, where $E$ is the set of edges and $V$ is the set of vertices.
  
  
 \section{Steiner tree problem}
@@ -158,10 +158,10 @@ The problem for finding a minimal Steiner tree for any given $G$ and $S$ has bee
 
 \section{The approximation algorithm}
 \paragraph{}
-The algorithm is a modified version of Kou, Markowsky and Berman[3], which gives a better running time and also because of reducing the problem to shortest path and minimum spanning tree it is simpler.
-Given $G=(V,E,d)$ a connceted, undirected distance graph, and the set of terminals $S \subseteq V$. Then the graph $G'_1 = (S, E'_1,d'_1)$ can be cosntructed as follows.
+The algorithm is a modified version of Kou, Markowsky and Berman[3], which gives a better running time.
+Given $G=(V,E,d)$ a connected, undirected distance graph, and a set of vertices $S \subseteq V$ which is called terminals. Then the graph $G'_1 = (S, E'_1,d'_1)$ can be constructed as follows.
 
-For every vertex $s \in S$ let $N(s)$ be the set of vertices in V which are closer to s than to any other vertex in S(in computational geometry N(s) is called the Voronoi region of vertex s). We can partition V according to N(s) by considering $ \{ N(s); s \in S  \} $, in other words every vertex $ v\in V $ belongs uniquely to one of the partitions N(s) with s as its center, where v is closer to s than any other vertex $ q\in S$ , $q \neq s$. Now, the graph $G'_1 = (S, E'_1,d'_1)$ is defined by
+For every vertex, $s \in S$ let $N(s)$ be the set of vertices in V which are closer to s than to any other vertex in S(in computational geometry N(s) is called the Voronoi region of vertex s). We can partition V according to N(s) by considering $ \{ N(s); s \in S  \} $, in other words for every vertex $ v\in V $ the vertex $s \in S $ that is at least as close to $ v $ than any other vertex $ p\in S$ would be the center for vertex $ v $(in the case that $ v $ has the same distance to several vertices $s \in S$, one of them will be chosen arbitrarily). Now, the graph $G'_1 = (S, E'_1,d'_1)$ is defined by
 
 
 
@@ -181,10 +181,10 @@ d'_1(s,t) = min \{d_1(s,u)+d(u,v)+d_1(v,t);\\ (u,v)\in E , u\in N(s), v\in N(t) 
 \end{split}
 \end{equation}
 
-In equation \ref{dp1} $ d_1(v_i,v_j)$ is equal to the distance of shortest path from $v_i$ to $v_j$ for $v_i,v_j \in V$ in graph G.
+In equation \ref{dp1} $ d_1(v_i,v_j)$ is defined as the distance of shortest path from $v_i$ to $v_j$ for $v_i,v_j \in V$ in graph G.
    
 \end{flushleft}
-$d'_1(s,t)$ in equation \ref{dp1} is the length of shortest path in G restricted to $N(s) \cup N(t)$. And the edge $(u',v')\in E'_1$ corresponds to the bridge edge $(u,v) \in E$ which acts like a bridge that goes from region N(s) to region N(t). Now the algorithm is as follow :\\
+$d'_1(s,t)$ in equation \ref{dp1} is the length of the shortest path in G restricted to $N(s) \cup N(t)$. And the edge $(u',v')\in E'_1$ corresponds to the bridge edge $(u,v) \in E$ which acts as a bridge that goes from region N(s) to region N(t). Now the algorithm is as follow :\\
 	{\em 
 	\begin{enumerate}
 			 \item Construct the graph $G'_1=(S,E'_1,d'_1)$ 
@@ -194,7 +194,7 @@ $d'_1(s,t)$ in equation \ref{dp1} is the length of shortest path in G restricted
 			\item Construct a subgraph $G_3$ of G by replacing each edge in $G_2$ by its corresponding shortest path in G.
 					
 			\item Find a minimum spanning tree $G_4$ of $G_3$.		
-			\item Construct a Steiner tree $G_5$ from $G_4$ by deleting edges in $G_4$, if necessary, so that no leaves in $G_5$ from the set $V-S$ 
+			\item Construct a Steiner tree $G_5$ from $G_4$ by deleting edges in $G_4$, if necessary, so that no leaves in $G_5$ belong to the set $V-S$ 
 		\end{enumerate}	
 	\begin{center}
 	Algorithm 1
@@ -204,16 +204,16 @@ Step 1 of Algorithm 1 dominates the computational time. This step requires the s
 
 \section{Implementation}
 \paragraph{}
-Step 1 of Algorithm 1 requires the voronoi region $\{ N(s); s\in S \}$ of each vertex $v\in V$. The partition $\{ N(s); s\in S \}$ can be computed by adjoining an auxiliary vertex $ S_0 $ and edges $ (s_0,s ),s \in S $, with length 0 to G and then performing a single source shortest path with source $s_0$. This step was implemented in the program by using a min priority queue based on a priority heap.The priority queue provides $ \mathcal{O}(log(n)) $ time for enqueing and dequeing. For the Dijkstra algorithm the priority queue stores at most $|V|$ number of item, thus each of enqueing and dequeing need $ \mathcal{O}(log(|V|)) $ and totally there are $|E|$ number of such operations, which gives the running time of $ \mathcal{O}(\left| E \right| log(|V|) )$ for step 1. This step also needs $\mathcal{O}(|E|)$ for finding $G'_1$ edges. For finding $G'_1$'s edges the program goes through all edges $(u,v)\in E$ and generates the triples $(s(u),s(v),d_1(s(u),u)+d(u,v)+d_1(v,s(v))$ in which $s(v)\in S$ is the center of region that v belongs to.Then the program finds the minimum distance for edge $(s(u),s(v)$ over all distances $d_1(s(u),u)+d(u,v)+d_1(v,s(v))$.   
+Step 1 of Algorithm 1 requires the Voronoi region $\{ N(s); s\in S \}$ of each vertex $v\in V$. The partition $\{ N(s); s\in S \}$ can be computed by adjoining an auxiliary vertex $ S_0 $ and edges $ (s_0,s ),s \in S $, with length 0 to G and then performing a single source shortest path with source $s_0$. This step was implemented in the program by using a min priority queue based on a priority heap.The priority queue provides $ \mathcal{O}(log(n)) $ time for enqueing and dequeing. For the Dijkstra algorithm the priority queue stores $\mathcal{O}(|V|+ |E|)$, thus each of enqueing and dequeing need $ \mathcal{O}(log(|V|+|E|)) $ and totally there are $|E|$ number of such operations, which gives the running time of $ \mathcal{O}(\left| E \right| log(|V|+|E|) )$ for step 1. This step also needs $\mathcal{O}(|E|)$ for finding $G'_1$ edges. For finding $G'_1$'s edges the program goes through all edges $(u,v)\in E$ and generates the triples $(s(u),s(v),d_1(s(u),u)+d(u,v)+d_1(v,s(v))$ in which $s(v)\in S$ is the center of region that v belongs to.Then the program finds the minimum distance for edge $(s(u),s(v)$ over all distances $d_1(s(u),u)+d(u,v)+d_1(v,s(v))$. The optimal running time of $\mathcal{O}(|E| + |V|log(|V|))$ for the single source shortest path can be achieved by using Fredman and Trajan's[4] implementation of Dijkstra's algorithm.        
 \paragraph{}
-Step 2 computes the minimum spanning tree $G_2$ of $G'_1$. The graph $G'_1$ has $\mathcal{O} (|E|)$ edges and hence this step can be carried out in $\mathcal{O}(|E|log(|S|))$ by using Kruskal algorithm and Union Find data structure[4].
+Step 2 computes the minimum spanning tree $G_2$ of $G'_1$. The graph $G'_1$ has $\mathcal{O} (|E|)$ edges and hence this step can be carried out in $\mathcal{O}(|E|log(|S|))$ by using Kruskal algorithm and Union Find data structure[5]. The fastest algorithm with known complexity for minimum spanning tree was presented by Chazelle[6] and it has the running time of $\mathcal{O}(m \alpha(m,n))$ where $\alpha$ is the inverse of the Ackermann function.
 \paragraph{}
 In step 3 the edges of $G_2$ have to be replaced by its corresponding edges from the shortest path computed in step 1.Consider the edge $(u,v)$ of $G_2$, this edge corresponds to the shortest path between u and v in the graph G, here all the edges of G from this shortest path are plugged back to $G_2$. In step 1 the predecessor of each vertex has been computed and stored in an array, hence by means of this array the shortest path can be constructed.\\
-Step 4 is the same is step 2 in which the minimum spanning tree of the graph from step 3 was computed. A
+Step 4 is the same is step 2 in which the minimum spanning tree of the graph from step 3 was computed.
 
 
 \section{Results}
-Several tests has been performed to evaluate the performance of this aproximation algorithm. The code is implemented in Java 1.8 and the dataset from 11th DIMACS Implementation Challenge[5] is used. All runs are performed on a machine with score 181.433863(the score is calculated according to DIMACS Implementaion Challenge benchmark code to compare the results from different machines).  
+Several tests has been performed to evaluate the performance of this aproximation algorithm. The code is implemented in Java 1.8 and the dataset from 11th DIMACS Implementation Challenge[7] is used. All runs are performed on a machine with score 181.433863(the score is calculated according to DIMACS Implementaion Challenge benchmark code to compare the results from different machines).  
 
 \begin{figure}[h]
 \centering
@@ -279,47 +279,46 @@ Several tests has been performed to evaluate the performance of this aproximatio
 \end{tikzpicture}
 \caption{Comparison of approximation ratio}
 \end{figure}  
-R100KEFST, is the instance with fractional weight, Euclidean distance and it is obtained by full Steiner tree generation for the classical Euclidean Steiner tree problem in the plane[7]. TSPFST, PUC, , LIN and WRP are the instances from \emph{SteinLib}[8] testsets. These instances all have integer weights. Here is brief description of each of this dataset. TSPFST is a rectilinear graph with L1 distances.  PUC contains 3 classes of the instance, hypercubes,  code covering and bipartite graphs,  and they are artificial instances(i.e. there are not derived from real world problem)[9]. The LIN instance is derived from VLSI grid graphs and it has L1 distances[10]. WRP instances are wire routing problems from industry. \\
+R100KEFST, is the instance with fractional weight, Euclidean distance and it is obtained by full Steiner tree generation for the classical Euclidean Steiner tree problem in the plane[8]. TSPFST, PUC,  LIN, and WRP are the instances from \emph{SteinLib}[9] test sets. These instances all have integer weights. Here is a brief description of each of this dataset. TSPFST is a rectilinear graph with L1 distances.  PUC contains 3 classes of the instance, hypercubes,  code covering and bipartite graphs,  and they are artificial instances(i.e. there are not derived from real world problem)[10]. The LIN instance is derived from VLSI grid graphs and it has L1 distances[11]. WRP instances are wire routing problems from industry. \\
 
 In theory, it is claimed that step 1 of algorithm 1 dominates the whole running time. The runtime of the program was  measured  in microsecond and for most of the instances contribution of step 1 in running time is the most comparing to other steps. Figure 3 represtnts the running time diagram for seleceted instances.
-
-\begin{figure}
-
-\begin{subfigure}[b]{0.1\textwidth}
-        \centering
- 		\includegraphics[scale=0.4]{TSPFST.png}
-     \end{subfigure}
-\hfill
- \begin{subfigure}[b]{0.5\textwidth}
-        \centering
- 		\includegraphics[scale=0.4]{PUC.png}
-     \end{subfigure}
-    \hfill
-    
- \begin{subfigure}[b]{0.1\textwidth}
+\begin{figure}[H]
  \centering
-     \includegraphics[scale=0.4]{WRP.png}
+  	\includegraphics[scale=0.5]{TSPFST.png} 		     
+\end{figure}
+
+ \begin{figure}[H]
+ \begin{subfigure}[b]{0.2\linewidth}
+        \centering
+ 		\includegraphics[scale=0.5]{PUC.png}
+  \end{subfigure}
+\hfill
+ \begin{subfigure}[b]{0.5\linewidth}
+ \centering
+	\includegraphics[scale=0.5]{WRP.png}
+\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+ \centering
+\begin{subfigure}[b]{0.2\textwidth}
+ \flushleft
+     \includegraphics[scale=0.5]{LIN.png}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.5\textwidth}
  \centering
-     \includegraphics[scale=0.4]{LIN.png}
-     
+     \includegraphics[scale=0.5]{R100KEFST.png}
 \end{subfigure}
 
-\hfill
-\begin{subfigure}[b]{1\textwidth}
- \centering
-     \includegraphics[scale=0.4]{R100KEFST.png}
-     
-\end{subfigure}
-
-\caption{Running time in microsecond for of each step of the algorithm }
+ \caption{ Running time in microsecond for of each step of the algorithm }
 \end{figure}
+
 
 
 \section{Conclusions}
 We have presented an implementation of an approximation algorithm for Steiner tree problem. The algorithm has approximation ratio of $2 - \frac{2}{l}$,where $ l $ is the minimum number of leaves in any Steiner tree for the given graph. The algorithm running time is dominated by its first step in which a single shortest path problem is computed, in our code we used the Dijkstra algorithm and priority queue which yields the running time of $\mathcal{O}(|E|log|V|)$. From the experimental results, we observed that the most consuming step for most of the instances is the first one and this result agrees with the theory.         
+
+
 
 
 
@@ -344,6 +343,11 @@ We have presented an implementation of an approximation algorithm for Steiner tr
 	\newblock Greedy Algorithms for Minimum
 	Spanning Trees, CS 473: Fundamental Algorithms, Fall 2011,
 	\url{https://courses.engr.illinois.edu/cs473/fa2011/lec/12_notes.pdf}
+	
+	\bibitem{CHZ}   Bernard Chazelle, 2000 
+	A minimum spanning tree algorithm with inverse-Ackermann type complexity,
+	Journal of the Association for Computing Machinery, 47 (6): 1028?1047
+	
 	
 	\bibitem{DIMACS} 11th DIMACS Implementation Challenge in Collaboration with ICERM:
 		Steiner Tree Problems,

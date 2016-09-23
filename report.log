@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.13)  6 SEP 2016 22:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.13)  23 SEP 2016 21:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -680,7 +680,14 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
 ks.code.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-)))
+))) (/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count141
+\float@exts=\toks38
+\float@box=\box40
+\@float@everytoks=\toks39
+\@floatcapt=\box41
+)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
 ts.statistics.code.tex)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
@@ -704,17 +711,17 @@ LaTeX Font Info:    ... okay on input line 32.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count141
+\scratchcounter=\count142
 \scratchdimen=\dimen186
-\scratchbox=\box40
-\nofMPsegments=\count142
-\nofMParguments=\count143
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count144
+\scratchbox=\box42
+\nofMPsegments=\count143
+\nofMParguments=\count144
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count145
 \MPscratchDim=\dimen187
-\MPnumerator=\count145
-\makeMPintoPDFobject=\count146
-\everyMPtoPDFconversion=\toks39
+\MPnumerator=\count146
+\makeMPintoPDFobject=\count147
+\everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -733,9 +740,10 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box41
+\AtBeginShipoutBox=\box43
 Package hyperref Info: Link coloring OFF on input line 32.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -744,7 +752,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count147
+\c@section@level=\count148
 )
 LaTeX Info: Redefining \ref on input line 32.
 LaTeX Info: Redefining \pageref on input line 32.
@@ -779,61 +787,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
-[4] <TSPFST.png, id=85, 361.35pt x 180.675pt>
+[4] <TSPFST.png, id=85, 611.28375pt x 380.92313pt>
 File: TSPFST.png Graphic file (type png)
  <use TSPFST.png>
-Package pdftex.def Info: TSPFST.png used on input line 290.
-(pdftex.def)             Requested size: 144.53743pt x 72.2687pt.
+Package pdftex.def Info: TSPFST.png used on input line 287.
+(pdftex.def)             Requested size: 305.64113pt x 190.46109pt.
 
-Overfull \hbox (110.03532pt too wide) in paragraph at lines 290--291
- [][] 
- []
-
-<PUC.png, id=87, 361.35pt x 180.675pt>
+<PUC.png, id=86, 455.45157pt x 255.95625pt>
 File: PUC.png Graphic file (type png)
  <use PUC.png>
-Package pdftex.def Info: PUC.png used on input line 295.
-(pdftex.def)             Requested size: 144.53743pt x 72.2687pt.
+Package pdftex.def Info: PUC.png used on input line 293.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
 
-<WRP.png, id=88, 361.35pt x 180.675pt>
-File: WRP.png Graphic file (type png)
- <use WRP.png>
-Package pdftex.def Info: WRP.png used on input line 301.
-(pdftex.def)             Requested size: 144.53743pt x 72.2687pt.
-
-Overfull \hbox (110.03532pt too wide) in paragraph at lines 301--302
+Overfull \hbox (158.72627pt too wide) in paragraph at lines 293--294
  [][] 
  []
 
-<LIN.png, id=89, 361.35pt x 180.675pt>
+<WRP.png, id=87, 455.45157pt x 255.95625pt>
+File: WRP.png Graphic file (type png)
+ <use WRP.png>
+Package pdftex.def Info: WRP.png used on input line 298.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
+
+Overfull \hbox (55.22522pt too wide) in paragraph at lines 298--299
+ [][] 
+ []
+
+<LIN.png, id=88, 455.45157pt x 255.95625pt>
 File: LIN.png Graphic file (type png)
  <use LIN.png>
-Package pdftex.def Info: LIN.png used on input line 306.
-(pdftex.def)             Requested size: 144.53743pt x 72.2687pt.
+Package pdftex.def Info: LIN.png used on input line 305.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
 
-<R100KEFST.png, id=90, 361.35pt x 180.675pt>
+Overfull \hbox (158.72627pt too wide) in paragraph at lines 305--306
+[]  
+ []
+
+<R100KEFST.png, id=89, 455.45157pt x 255.95625pt>
 File: R100KEFST.png Graphic file (type png)
  <use R100KEFST.png>
-Package pdftex.def Info: R100KEFST.png used on input line 313.
-(pdftex.def)             Requested size: 144.53743pt x 72.2687pt.
- [5 <./TSPFST.png> <./PUC.png> <./WRP.png> <./LIN.png> <./R100KEFST.png>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
+Package pdftex.def Info: R100KEFST.png used on input line 310.
+(pdftex.def)             Requested size: 227.72522pt x 127.9778pt.
+
+Overfull \hbox (55.22522pt too wide) in paragraph at lines 310--311
+ [][] 
+ []
+
+[5 <./TSPFST.png (PNG copy)> <./PUC.png (PNG copy)> <./WRP.png (PNG copy)>]
+[6 <./LIN.png (PNG copy)> <./R100KEFST.png (PNG copy)>] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 373.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 373.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 373.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 373.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: D826C4C3EBDAF8E25792DD871DE06023;301.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 373.
  ) 
 Here is how much of TeX's memory you used:
- 27230 strings out of 493013
- 659392 string characters out of 6133328
+ 27286 strings out of 493013
+ 660138 string characters out of 6133328
  863236 words of memory out of 5000000
- 30316 multiletter control sequences out of 15000+600000
+ 30364 multiletter control sequences out of 15000+600000
  9529 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,15n,103p,1203b,2336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,15n,103p,1392b,2340s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -848,10 +866,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (6 pages, 542610 bytes).
+Output written on report.pdf (7 pages, 405969 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
+ 182 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
  92 words of extra memory for PDF output out of 10000 (max. 10000000)
 
